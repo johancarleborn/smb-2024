@@ -1,0 +1,36 @@
+{
+  "name": "lwlightning",
+  "version": "1.0.0",
+  "repository": "git@github.com:lightwebs/smb.git",
+  "author": "Johan Carleborn <johancarleborn@gmail.com>",
+  "scripts": {
+    "clean": "rm -r dist/* .parcel-cache/* yarn.lock .DS_Store",
+    "serve": "parcel --port 1234 --hmr-port 1235 src/js/app.js",
+    "start": "parcel watch src/js/app.js",
+    "bc": "browser-sync start --no-notify --proxy 'http://smb.local/' --files '**/*.php, **/*.css, **/*.js'",
+    "build": "parcel build src/js/app.js",
+    "colors": "node theme-scripts/colors.js"
+  },
+  "watchreload": {
+    "files": "**/*.php"
+  },
+  "browserslist": "> 0.25%, not dead",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.11.0 ",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "browser-sync": "^3.0.2",
+    "buffer": "^6.0.3",
+    "cssnano": "6.0.3",
+    "parcel": "latest",
+    "postcss": "^8.4.35",
+    "postcss-cli": "11.0.0",
+    "postcss-import": "16.0.0",
+    "postcss-nested": "^6.0.1",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "swiper": "11.0.6",
+    "yarn": "^1.22.21"
+  }
+}

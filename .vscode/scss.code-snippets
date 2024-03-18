@@ -1,0 +1,98 @@
+{
+	// Place your lightning workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Larger desktops, 1400px and up": {
+        "prefix": "xxl",
+        "body": [
+			"@media all and (min-width: #{\\$\`xxl}){",
+            "\t$0",
+            "}"
+        ],
+        "description": "XX-Large devices (larger desktops, 1400px and up)"
+    },
+    "Large desktops, 1200px and up": {
+        "prefix": "xl",
+        "body": [
+			"@media all and (min-width: #{\\$\`xl}){",
+            "\t$0",
+            "}"
+        ],
+        "description": "X-Large devices (large desktops, 1200px and up)"
+    },
+    "Desktops, 992px and up": {
+        "prefix": "lg",
+        "body": [
+			"@media all and (min-width: #{\\$\`lg}){",
+            "\t$0",
+            "}"
+        ],
+        "description": "Large devices (desktops, 992px and up)"
+    },
+    "Tablets, 768px and up": {
+        "prefix": "md",
+        "body": [
+			"@media all and (min-width: #{\\$\`md}){",
+            "\t$0",
+            "}"
+        ],
+        "description": "Medium devices (tablets, 768px and up)"
+    },
+    "Landscape phones, 576px and up": {
+        "prefix": "sm",
+        "body": [
+			"@media all and (min-width: #{\\$\`sm}){",
+            "\t$0",
+            "}"
+        ],
+        "description": "Small devices (landscape phones, 576px and up)"
+    },
+    "Phones, 374px and up": {
+        "prefix": "xs",
+        "body": [
+			"@media all and (min-width: #{\\$\`xs}){",
+            "\t$0",
+            "}"
+        ],
+        "description": "Phones (374px and up)"
+    },
+	"Media breakpoint between": {
+        "prefix": "bb",
+        "body": [
+			"@include media-breakpoint-between($1, $2) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Media breakpoint between"
+    },
+	"Media breakpoint and down": {
+        "prefix": "bd",
+        "body": [
+            "@media all and (max-width: #{\\$\`$1}){",
+            "\t$0",
+            "}"
+        ],
+        "description": "Media breakpoint and down (xxl | xl | lg | md | sm | xsm)"
+    },
+	
+    "rem-calc": {
+        "prefix": "rc",
+        "body": [
+            "rc($0)"
+        ],
+        "description": "Converts a pixel value to a rem value"
+    }
+}

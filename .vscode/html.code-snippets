@@ -1,0 +1,41 @@
+{
+	// Place your lightning workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"New page component": {
+        "prefix": "npc",
+        "body": [
+            "<?php",
+			"if ( get_row_layout() == '${1:flexible_content_name}' && !s(get_row_layout())['hide_component'] ) :",
+			"\\$\`prefix = get_row_layout();",
+			"\\$\`${10:sub_field_name} = get_sub_field('${10:{flexible_content_name_left}');",
+			"?>",
+			"<section id=\"<?= s(\\$\`prefix)['component_id']; ?>\" class=\"pc-${1:duplicate-me} section <?= section_spacing(); ?> <?= s(\\$\`prefix)['bg_color']; ?>\">",
+			"",
+			"\t<?php component_header(\\$\`prefix); ?>",
+			"",
+			"\t<div class=\"container <?= s(\\$\`prefix)['text_color']; ?>\">"
+			"\t\t\ \`$0<?= $\`${10:sub_field_name}; ?>",
+			"\t</div>",
+			"",
+			"\t<?php component_footer(\\$\`prefix); ?>",
+			"",
+			"</section>",
+			"<?php endif; ?>"
+        ],
+        "description": "New page component for the page builder"
+    },
+}

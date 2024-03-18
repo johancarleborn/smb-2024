@@ -1,0 +1,250 @@
+<?php
+return [
+    'key' => 'layout_cover',
+    'name' => 'cover',
+    'label' => 'Omslag',
+    'display' => 'block',
+    'sub_fields' => [
+        [
+            'key' => 'field_lb_cover_comp_head_tab',
+            'label' => 'Text',
+            'type' => 'tab',
+            'placement' => 'top',
+        ],
+        [
+            'key' => 'field_lb_cover_top_title',
+            'label' => __('Topprubrik', 'lightning'),
+            'name' => 'cover',
+            'type' => 'clone',
+            'instructions' => __('Liten rubrik ovanför huvudrubriken', 'lightning'),
+            'clone' => ['field_clone_top_title'],
+            'display' => 'seamless',
+            'prefix_name' => 1,
+            'layout' => 'table',
+            'wrapper' => ['width' => 100]
+        ],
+        [
+            'key' => 'field_lb_cover_title',
+            'label' => __('Rubrik', 'lightning'),
+            'name' => 'cover',
+            'type' => 'clone',
+            'clone' => ['field_clone_title'],
+            'display' => 'seamless',
+            'layout' => 'block',
+            'prefix_name' => 1,
+            'wrapper' => ['width' => 70]
+        ],
+        [
+            'key' => 'field_lb_cover_title_tag',
+            'label' => __('Rubrikstorlek', 'lightning'),
+            'name' => 'cover',
+            'type' => 'clone',
+            'clone' => ['field_clone_title_tag'],
+            'display' => 'seamless',
+            'layout' => 'block',
+            'prefix_name' => 1,
+            'wrapper' => ['width' => 15]
+        ],
+        [
+            'key' => 'field_lb_cover_text',
+            'label' => __('Text', 'lightning'),
+            'name' => 'cover',
+            'type' => 'clone',
+            'clone' => [0 => 'field_clone_text'],
+            'display' => 'seamless',
+            'layout' => 'table',
+            'prefix_name' => 1,
+            'required' => 0,
+            'wrapper' => ['width' => 100]
+        ],
+        [
+            'key' => 'field_lb_cover_content_tab',
+            'label' => 'CTA & Media',
+            'type' => 'tab',
+            'placement' => 'top',
+        ],
+        [
+            'key' => 'field_lb_cover_btn',
+            'label' => 'Primär knapp',
+            'name' => 'cover_btn',
+            'type' => 'link',
+            'return_format' => 'array',
+            'wrapper' => [
+                'width' => 50,
+            ],
+        ],
+        [
+            'key' => 'field_lb_cover_btn_2',
+            'label' => 'Sekundär knapp',
+            'name' => 'cover_btn_2',
+            'type' => 'link',
+            'return_format' => 'array',
+            'wrapper' => [
+                'width' => 50,
+            ],
+        ],
+        [
+            'key' => 'field_lb_cover_media_type',
+            'label' => 'Mediatyp',
+            'name' => 'cover_media_type',
+            'type' => 'button_group',
+            'choices' => [
+                'img' => 'Bild',
+                'video' => 'Video',
+                'color' => 'Färg',
+            ],
+            'allow_null' => 0,
+            'layout' => 'horizontal',
+            'return_format' => 'value',
+            'wrapper' => ['width' => 50],
+        ],
+        [
+            'key' => 'field_lb_cover_img',
+            'label' => 'Bild',
+            'name' => 'cover_img',
+            'type' => 'image',
+            'conditional_logic' => [
+                [
+                    [
+                        'field' => 'field_lb_cover_media_type',
+                        'operator' => '==',
+                        'value' => 'img',
+                    ],
+                ],
+            ],
+            'wrapper' => [
+                'width' => '50',
+            ],
+            'return_format' => 'id',
+            'preview_size' => 'medium',
+            'library' => 'all',
+        ],
+        [
+            'key' => 'field_lb_cover_video',
+            'label' => 'Video',
+            'name' => 'cover_video',
+            'type' => 'file',
+            'instructions' => 'Endast mp4-format',
+            'conditional_logic' => [
+                [
+                    [
+                        'field' => 'field_lb_cover_media_type',
+                        'operator' => '==',
+                        'value' => 'video',
+                    ],
+                ],
+            ],
+            'wrapper' => [
+                'width' => '50',
+            ],
+            'return_format' => 'id',
+            'library' => 'all',
+            'mime_types' => 'mp4',
+        ],
+        [
+            'key' => 'field_lb_cover_bg_color',
+            'label' => __('Bakgrundsfärg', 'lightning'),
+            'name' => 'cover_bg_color',
+            'type' => 'clone',
+            'instructions' => __('Bakgrundsfärg för hela sektionen', 'lightning'),
+            'clone' => ['field_clone_bg_colors'],
+            'display' => 'group',
+            'layout' => 'table',
+            'prefix_name' => 0,
+            'required' => 0,
+            'wrapper' => ['width' => 50],
+            'conditional_logic' => [
+                [
+                    [
+                        'field' => 'field_lb_cover_media_type',
+                        'operator' => '==',
+                        'value' => 'color',
+                    ],
+                ],
+            ],
+        ],
+        [
+            'key' => 'field_lb_cover_settings_tab',
+            'label' => 'Visuellt/Inställningar',
+            'type' => 'tab',
+            'placement' => 'top',
+        ],
+        [
+            'key' => 'field_lb_cover_text_align',
+            'label' => __('Innehållsjustering', 'lightning'),
+            'name' => 'cover_text_align',
+            'type' => 'clone',
+            'clone' => ['field_clone_text_align'],
+            'display' => 'group',
+            'layout' => 'table',
+            'prefix_label' => 0,
+            'prefix_name' => 0,
+            'required' => 0,
+            'wrapper' => ['width' => 50]
+        ],
+        [
+            'key' => 'field_lb_cover_overlay',
+            'label' => __('Styrka på overlay', 'lightning'),
+            'name' => 'overlay',
+            'type' => 'range',
+            'instructions' => __('Används för att göra texten mer läsbar över bilder och video. <br> 0 betyder ingen overlay.', 'lightning'),
+            'min' => '0',
+            'max' => '2',
+            'step' => '1',
+            'default_value' => '1',
+            'required' => 0,
+            'wrapper' => ['width' => 50]
+        ],
+        [
+            'key' => 'field_lb_cover_size_cover',
+            'label' => __('Storlek på omslaget', 'lightning'),
+            'name' => 'cover_size',
+            'type' => 'range',
+            'instructions' => __('Från smalt till högt', 'lightning'),
+            'min' => '1',
+            'max' => '3',
+            'step' => '1',
+            'default_value' => '2',
+            'wrapper' => ['width' => 50]
+        ],
+        [
+            'key' => 'field_lb_cover_boxed_cover',
+            'label' => 'Boxad?',
+            'name' => 'cover_boxed',
+            'type' => 'true_false',
+            'instructions' => 'Omslaget håller sig inom kontainerbredden.',
+            'default_value' => 0,
+            'ui' => 1,
+            'ui_on_text' => 'Ja',
+            'ui_off_text' => 'Nej',
+            'wrapper' => ['width' => 50]
+        ],
+        [
+            'key' => 'field_lb_cover_message',
+            'label' => __('Färger för textinnehållet', 'lightning'),
+            'name' => 'cover_msg',
+            'type' => 'message',
+            'message' => __('Bakgrundsfärgen avser färgen bakom text och knapp', 'lightning'),
+        ],
+        [
+            'key' => 'field_lb_cover_colors',
+            'label' => 'Färger',
+            'name' => 'cover',
+            'type' => 'clone',
+            'clone' => [0 => 'group_clone_component_settings'],
+            'display' => 'seamless',
+            'layout' => 'block',
+            'prefix_name' => 1,
+            'wrapper' => ['width' => '50']
+        ],
+        [
+            'key' => 'field_lb_cover_component_id',
+            'label' => 'Komponentens id (frivilligt]',
+            'name' => 'component_id',
+            'type' => 'text',
+            'instructions' => $component_id_instructions,
+            'placeholder' => 'my-id',
+            'prepend' => '#',
+        ]
+    ]
+];

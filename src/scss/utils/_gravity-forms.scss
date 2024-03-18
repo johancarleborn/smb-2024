@@ -1,0 +1,94 @@
+@layer utilities {
+    label,
+    legend {
+        @apply text-xs font-semibold text-color-inherit;
+    }
+
+    input[type='text'],
+    input[type='email'],
+    input[type='url'],
+    input[type='password'],
+    input[type='search'],
+    input[type='number'],
+    input[type='tel'],
+    input[type='range'],
+    input[type='date'],
+    input[type='month'],
+    input[type='week'],
+    input[type='time'],
+    input[type='datetime'],
+    input[type='datetime-local'],
+    input[type='color'],
+    textarea {
+        @apply text-base shadow-none text-black text-inherit w-full border border-gray-200 rounded-lg px-4 py-2 appearance-none mb-2 focus:border-gray-400 focus:ring-0 focus:ring-offset-0 focus:outline-none focus:ring-gray-400 focus:ring-offset-gray-50 placeholder:text-gray-100 focus-within:border-gray-100;
+    }
+
+    input[type='search']::placeholder {
+        @apply italic;
+    }
+
+    fieldset {
+        @apply border-0 p-0 mb-2;
+    }
+}
+
+.gform_button.button,
+.gform-button.button {
+    @apply inline-flex px-5 text-center py-3 text-sm font-medium whitespace-nowrap text-white bg-primary-500 hover:bg-primary-400 rounded-md active:bg-primary-300 md:px-6 md:text-base transition-colors duration-300 disabled:bg-gray-300 disabled:text-gray-600 disabled:cursor-not-allowed border border-transparent;
+}
+
+// readonly input
+input[readonly] {
+    @apply border-none px-0;
+}
+
+.gform_validation_errors {
+    @apply border border-validation-error bg-validation-error/20 my-6 p-4 rounded-lg text-validation-error;
+}
+
+h2.gform_submission_error.hide_summary {
+    @apply text-base;
+}
+
+.gfield_validation_message {
+    @apply text-sm text-validation-error;
+}
+
+.gform_confirmation_message {
+    @apply text-center;
+
+    p {
+        @apply font-normal;
+    }
+}
+
+body .gform_wrapper.gravity-theme {
+    .gfield_label {
+        @apply text-sm font-semibold mb-2;
+    }
+
+    .field_sublabel_above .gfield_description {
+        @apply text-sm mt-0 mb-2 py-0;
+    }
+
+    .ginput_complex label.gform-field-label--type-sub {
+        @apply text-xs font-semibold mb-2;
+    }
+
+    .ginput_counter,
+    .gfield_required {
+        @apply text-xs text-color-inherit;
+    }
+}
+
+.mc-field-group {
+    @apply my-2;
+
+    label {
+        @apply mb-1 block;
+    }
+}
+
+#mc-embedded-subscribe {
+    @apply mt-1 md:mt-2;
+}

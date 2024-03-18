@@ -1,0 +1,18 @@
+@layer base {
+    .relevanssi-live-search-results {
+        @apply shadow-md hidden;
+        @apply w-full #{!important};
+
+        &.relevanssi-live-search-results-showing {
+            @apply block overflow-auto opacity-100 h-auto lg:max-h-[600px];
+        }
+
+        .rlv-has-spinner {
+            @apply w-8 h-8 border-gray-300 border-r-transparent;
+
+            &:after {
+                @apply bg-transparent;
+            }
+        }
+    }
+}

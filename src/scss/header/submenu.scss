@@ -1,0 +1,57 @@
+@layer base {
+    ul.sub-menu {
+        @apply hidden pt-0 pb-4 lg:py-4 lg:top-full lg:block lg:absolute lg:mx-auto lg:rounded-lg lg:z-10 lg:pointer-events-none lg:opacity-0 text-black lg:min-w-[240px] lg:w-full bg-white lg:transition-opacity lg:duration-100 max-lg:-mx-6;
+
+        &.sub-menu-0 {
+            @apply lg:shadow-lg lg:w-auto;
+        }
+
+        ul.sub-menu {
+            @apply hidden relative lg:min-w-0 transition-none translate-y-0 pt-0;
+        }
+
+        &.active,
+        &.active.sub-menu {
+            @apply block opacity-100 pointer-events-auto z-10 bg-gray-100/60 lg:bg-white px-0;
+        }
+
+        li {
+            @apply max-lg:px-6;
+            a {
+                @apply font-normal;
+            }
+
+            * {
+                @apply hover:text-primary-300;
+            }
+        }
+    }
+
+    li {
+        @apply max-sm:px-4 max-md:px-6 max-lg:px-8;
+    }
+
+    li.menu-item-has-children {
+        @apply flex lg:inline-flex w-full flex-col lg:w-auto flex-wrap lg:flex-nowrap justify-center;
+
+        @media all and (min-width: #{$lg}) {
+            &.parent-item:hover {
+                > span > .sub-menu-toggle-button .material-icons-round {
+                    transform-style: preserve-3d;
+                    transform: rotateX(180deg);
+                }
+
+                > ul.sub-menu {
+                    @apply pointer-events-auto z-10 opacity-100 translate-y-0;
+                }
+            }
+        }
+
+        &.active {
+            > span > .sub-menu-toggle-button .material-icons-round {
+                transform-style: preserve-3d;
+                transform: rotateX(180deg);
+            }
+        }
+    }
+}

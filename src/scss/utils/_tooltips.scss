@@ -1,0 +1,102 @@
+@layer utilities {
+    .tooltip-wrapper {
+        @apply relative;
+    }
+
+    .tooltip {
+        @apply hidden lg:block absolute z-10 bg-black text-white text-xs font-light opacity-0 p-1 rounded-md transition-all pointer-events-none;
+    }
+}
+
+[data-tooltip-top],
+[data-tooltip-bottom],
+[data-tooltip-left],
+[data-tooltip-right] {
+    display: flex !important;
+    position: relative;
+
+    .tooltip {
+        transition: all 0.2s;
+        pointer-events: none;
+        white-space: nowrap;
+    }
+
+    @media all and (min-width: #{$lg}) {
+        &:hover {
+            .tooltip {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+[data-tooltip-top] {
+    justify-content: center;
+
+    .tooltip {
+        bottom: 100%;
+    }
+
+    @media all and (min-width: #{$lg}) {
+        &:hover {
+            .tooltip {
+                bottom: 140%;
+            }
+        }
+    }
+}
+
+[data-tooltip-right] {
+    align-items: center;
+    .tooltip {
+        left: 100%;
+    }
+
+    @media all and (min-width: #{$lg}) {
+        &:hover {
+            .tooltip {
+                left: 140%;
+            }
+        }
+    }
+}
+
+[data-tooltip-bottom] {
+    justify-content: center;
+    .tooltip {
+        top: 100%;
+    }
+
+    @media all and (min-width: #{$lg}) {
+        &:hover {
+            .tooltip {
+                top: 140%;
+            }
+        }
+    }
+}
+
+[data-tooltip-left] {
+    align-items: center;
+    .tooltip {
+        right: 100%;
+    }
+
+    @media all and (min-width: #{$lg}) {
+        &:hover {
+            .tooltip {
+                right: 140%;
+            }
+        }
+    }
+}
+
+[data-tooltip-copy] {
+    @media all and (max-width: #{$lg}) {
+        &:active {
+            .tooltip {
+                opacity: 1;
+            }
+        }
+    }
+}

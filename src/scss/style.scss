@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// @import 'swiper/swiper.scss';
+// @import 'swiper/modules/navigation.scss';
+
+// Settings
+@import './settings/variables';
+@import './settings/typography';
+@import './utils/gravity-forms';
+@import './settings/accessibility';
+
+// Utilities
+@import './utils/tooltips';
+@import './utils/toggles';
+@import './utils/modal';
+@import './utils/buttons';
+
+// Globals
+@import './base/global';
+@import './header/submenu';
+@import './header/relevanssi';
+
+* {
+    box-sizing: border-box;
+}

@@ -1,0 +1,191 @@
+@mixin h1 {
+    font-size: 34px;
+    line-height: 42px;
+
+    @media all and (min-width: #{$md}) {
+        font-size: 40px;
+        line-height: 48px;
+    }
+
+    @media all and (min-width: #{$lg}) {
+        font-size: 48px;
+        line-height: 56px;
+    }
+}
+
+@mixin h2 {
+    font-size: 26px;
+    line-height: 34px;
+
+    @media all and (min-width: #{$md}) {
+        font-size: 36px;
+        line-height: 42px;
+    }
+
+    @media all and (min-width: #{$lg}) {
+        font-size: 40px;
+        line-height: 48px;
+    }
+}
+
+@mixin h3 {
+    font-size: 24px;
+    line-height: 32px;
+
+    @media all and (min-width: #{$md}) {
+        font-size: 28px;
+        line-height: 34px;
+    }
+
+    @media all and (min-width: #{$lg}) {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
+
+@mixin h4 {
+    font-size: 22px;
+    line-height: 30px;
+
+    @media all and (min-width: #{$lg}) {
+        font-size: 24px;
+        line-height: 32px;
+    }
+}
+
+@mixin h5 {
+    font-size: 18px;
+    line-height: 26px;
+
+    @media all and (min-width: #{$lg}) {
+        font-size: 22px;
+        line-height: 30px;
+    }
+}
+
+@mixin preamble {
+    font-size: 18px;
+    line-height: 28px;
+
+    @media all and (min-width: #{$lg}) {
+        font-size: 20px;
+        line-height: 30px;
+    }
+}
+
+@mixin regular-text {
+    @layer base {
+        @apply text-base md:text-lg;
+    }
+    font-family: 'Inter', sans-serif;
+}
+
+@mixin small-text {
+    @layer base {
+        @apply text-sm;
+    }
+}
+
+@mixin tiny-text {
+    @layer base {
+        @apply text-xs;
+    }
+}
+
+@layer base {
+    strong,
+    .strong {
+        @apply font-semibold;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-bold mt-0 mb-2;
+        font-family: 'Inter', sans-serif;
+    }
+}
+
+h1,
+.h1 {
+    @include h1;
+}
+
+h2,
+.h2 {
+    @include h2;
+}
+
+h3,
+.h3 {
+    @include h3;
+}
+
+h4,
+.h4 {
+    @include h4;
+}
+
+.preamble {
+    @include preamble;
+
+    * {
+        @include preamble;
+    }
+}
+
+p,
+.p {
+    @include regular-text;
+    @apply mb-3 md:mb-4 mt-0;
+}
+
+@layer base {
+    .text,
+    p,
+    .p {
+        a:not(.btn) {
+            @apply text-primary-700 underline hover:text-primary-800 focus:text-primary-800 active:text-primary-800;
+        }
+    }
+
+    .text {
+        ol,
+        ul {
+            @apply pl-4 md:pl-6 my-4;
+
+            li {
+                font-size: inherit;
+                @include regular-text;
+                @apply mb-2 md:mb-3 lg:mb-4;
+
+                a {
+                    @apply underline;
+                }
+            }
+        }
+        ol {
+            @apply list-decimal;
+        }
+
+        ul {
+            @apply list-disc;
+        }
+    }
+}
+
+.regular-text {
+    @include regular-text;
+}
+
+small,
+.small {
+    @include small-text;
+}
+
+.tiny {
+    @include tiny-text;
+}

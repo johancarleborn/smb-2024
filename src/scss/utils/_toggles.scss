@@ -1,0 +1,25 @@
+@layer base {
+    .ac-header {
+        @apply flex items-center justify-between cursor-pointer;
+        @apply after:content-['\e5cf'] after:font-['Material_Icons_Round'] after:duration-300;
+
+        &.active {
+            &:after {
+                transform-style: preserve-3d;
+                transform: rotateX(180deg);
+            }
+        }
+    }
+
+    .ac-footer * {
+        @apply pointer-events-none;
+    }
+
+    .ac-body {
+        @apply hidden flex-col gap-x-2;
+
+        &.active {
+            @apply flex;
+        }
+    }
+}

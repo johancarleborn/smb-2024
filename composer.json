@@ -1,0 +1,12 @@
+{
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+        "php-stubs/acf-pro-stubs": "^6.0",
+        "php-stubs/wordpress-stubs": "^6.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

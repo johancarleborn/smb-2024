@@ -1,0 +1,23 @@
+[data-modal_id] {
+    @apply flex flex-col justify-center w-full fixed top-0 bottom-0 left-0 right-0 -z-[1] opacity-0 pointer-events-none;
+
+    > div {
+        @apply scale-95 duration-200 transition-all;
+    }
+
+    &.active {
+        @apply scale-100 opacity-100 pointer-events-auto z-[1003];
+
+        > div {
+            @apply scale-100;
+        }
+    }
+}
+
+[data-toggle],
+[data-toggle_modal] {
+    @apply cursor-pointer;
+    * {
+        @apply pointer-events-none;
+    }
+}
