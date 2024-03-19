@@ -113,6 +113,7 @@ function globalACF() {
         'menu_btn' => get_field('menu_btn', 'option'),
         'menu_btn_2' => get_field('menu_btn_2', 'option'),
         'site_logo' => get_field('site_logo', 'option'),
+        'site_logo_dark' => get_field('site_logo_dark', 'option'),
         'footer_logo' => get_field('footer_logo', 'option'),
         'footer_copyright' => get_field('footer_copyright', 'option'),
         'social_media_text' => get_field('footer_col_social_media_text', 'option'),
@@ -286,13 +287,19 @@ function ancestor_id($post_id = null) {
  * Get custom amount of words from the exerpt.
  * @return int
  */
-function excerpt(int $limit, $post_id = null) {
-    $excerpt = explode(' ', get_the_excerpt($post_id), $limit);
+function excerpt($limit) {
+    $excerpt = explode(' ', get_the_excerpt(), $limit);
     if (count($excerpt) >= $limit) {
         array_pop($excerpt);
         $excerpt = implode(" ", $excerpt) . '...';
     } else {
         $excerpt = implode(" ", $excerpt);
+    }
+
+    //$excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
+    if (strpos($excerpt, ':: ') !== false) {
+        $excerpt = str_replace(':: ', '</strong> ', $excerpt);
+        $excerpt = '<strong class="text-pink-600">' . $excerpt;
     }
     return $excerpt;
 }
@@ -334,20 +341,20 @@ function section_spacing() {
  * Global overlay
  * 
  */
-function overlay($class = null, $strength = null, $revert = false) {
+function overlay($strength = 0, $class = null, $revert = false) {
     if ($strength == 0) {
         return;
     } elseif ($strength == 1) {
-        $strength = ' via-black/40 to-black/10';
+        $strength = ' via-black/30 to-black/70 wcag:via-black/80 wcag:to-black/90';
     } else {
-        $strength = ' via-black/60 to-black/30';
+        $strength = ' via-black/40 to-black/100 wcag:via-black/80 wcag:to-black/90';
     }
     if ($revert) {
         $strength .= ' bg-gradient-to-t';
     } else {
         $strength .= ' bg-gradient-to-b';
     }
-    echo "<div class='overlay absolute inset-0 pointer-events-none from-black/70 {$strength} -z-10 {$class}'></div>";
+    echo "<div class='overlay absolute inset-0 pointer-events-none from-black/20 {$strength} -z-1 {$class}'></div>";
 }
 
 
@@ -358,9 +365,9 @@ function overlay($class = null, $strength = null, $revert = false) {
  */
 function custom_link($link, string $class = null, string $icon_class = null, string $icon_name = null) {
     if ($link) {
-        $icon_name = $icon_name ? $icon_name : 'arrow_forward';
+        $icon_name = $icon_name ? $icon_name : 'chevron-forward';
         $link_color = get_sub_field('link_colors');
-        echo "<a class='inline-block font-semibold group md:text-lg {$link_color} {$class}' href='{$link['url']}' target='{$link['target']}'>{$link['title']}<span class='ml-3 -mt-1 font-semibold align-middle transition-transform duration-300 md:ml-4 text-inherit material-icons-round group-hover:translate-x-1 {$icon_class}'>{$icon_name}</span></a>";
+        echo "<a class='inline-block font-semibold group md:text-lg {$link_color} {$class}' href='{$link['url']}' target='{$link['target']}'>{$link['title']} <ion-icon name='{$icon_name}}' class='{$icon_class} ml-3 -mt-1 font-semibold align-middle transition-transform duration-300 md:ml-4 text-inherit group-hover:translate-x-1'></ion-icon></a>";
     }
 }
 

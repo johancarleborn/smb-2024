@@ -11,25 +11,24 @@ acf_add_local_field_group([
             'placement' => 'top',
         ],
         [
+            'key' => 'field_theme_settings_logo_image_dark',
+            'label' => 'Mörk logga',
+            'name' => 'site_logo_dark',
+            'type' => 'image',
+            'return_format' => 'id',
+            'preview_size' => 'medium',
+            'library' => 'all',
+            'wrapper' => ['width' => 50]
+        ],
+        [
             'key' => 'field_theme_settings_logo_image',
-            'label' => 'Logga',
+            'label' => 'Ljus logga',
             'name' => 'site_logo',
             'type' => 'image',
             'return_format' => 'id',
             'preview_size' => 'medium',
             'library' => 'all',
-            'conditional_logic' => [
-                [
-                    [
-                        'field' => 'field_theme_settings_logo_choice',
-                        'operator' => '==',
-                        'value' => 'logo',
-                    ],
-                ],
-            ],
-            'wrapper' => [
-                'width' => '50',
-            ]
+            'wrapper' => ['width' => 50]
         ],
         [
             'key' => 'field_lb_theme_settings_menu_btn',

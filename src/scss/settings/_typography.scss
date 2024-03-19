@@ -1,3 +1,8 @@
+body {
+    @apply antialiased;
+    font-family: 'Manrope', sans-serif;
+}
+
 @mixin h1 {
     font-size: 34px;
     line-height: 42px;
@@ -64,6 +69,8 @@
 }
 
 @mixin preamble {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
     font-size: 18px;
     line-height: 28px;
 
@@ -71,13 +78,17 @@
         font-size: 20px;
         line-height: 30px;
     }
+
+    strong {
+        @apply font-extrabold;
+    }
 }
 
 @mixin regular-text {
     @layer base {
         @apply text-base md:text-lg;
     }
-    font-family: 'Inter', sans-serif;
+    font-family: 'PT Serif', serif;
 }
 
 @mixin small-text {
@@ -104,8 +115,8 @@
     h4,
     h5,
     h6 {
-        @apply font-bold mt-0 mb-2;
-        font-family: 'Inter', sans-serif;
+        @apply font-bold mt-0 mb-2 tracking-wider;
+        font-family: 'Made Dillan', sans-serif;
     }
 }
 

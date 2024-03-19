@@ -41,4 +41,3 @@ foreach ($post_type_files as $file) {
 }
 
 require lb_path() . 'acf-lightning-builder.php';
-require acf_path() . 'article-builder/acf-article-builder.php';

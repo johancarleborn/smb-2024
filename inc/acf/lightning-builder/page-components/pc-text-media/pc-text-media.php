@@ -30,7 +30,7 @@ if (get_row_layout() == 'text_media' && !s(get_row_layout())['hide_component']) 
 
                             <?= $text; ?>
                             <?php if ($link) :
-                                $link_type === 'button' ? btn_l_primary($link, 'mt-4 lg:mt-6') : custom_link($link, 'text-primary-500 mt-4 lg:mt-6');
+                                $link_type === 'button' ? button_link($link, 'btn-primary mt-4 lg:mt-6') : custom_link($link, 'text-primary-500 mt-4 lg:mt-6');
                             endif; ?>
 
                         </div>

@@ -87,7 +87,7 @@ function acf_fields_flexible_content_layout_title($title, $field, $layout, $i) {
     }
 
     if (get_sub_field('hide_component')) {
-        $title .= ' - <b style="color:#aaa;"><span class="material-icons-round" style="font-size:18px;">visibility_off</span> Dold</b>';
+        $title .= ' - <b style="color:#aaa;"><ion-icon name="eye-off-outline" style="width:16px;"></ion-icon> Dold</b>';
     }
 
     if ($layout['name'] == 'post_listing') {

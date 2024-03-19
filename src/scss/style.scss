@@ -2,11 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    :root {
+        --color-primary: 204deg 100% 50%;
+        --color-primary-hover: 204deg 100% 40%;
+        --color-primary-active: 204deg 100% 30%;
+    }
+
+    :root.wcag {
+        --color-primary: 230deg 100% 40%;
+        --color-primary-hover: 230deg 100% 30%;
+        --color-primary-active: 230deg 100% 20%;
+    }
+}
+
 // @import 'swiper/swiper.scss';
 // @import 'swiper/modules/navigation.scss';
 
 // Settings
 @import './settings/variables';
+@import './settings/fonts';
 @import './settings/typography';
 @import './utils/gravity-forms';
 @import './settings/accessibility';

@@ -222,10 +222,42 @@ return [
             ],
         ],
         [
+            'key' => 'field_lb_post_listing_sidebar_tab',
+            'label' => 'Sidomeny',
+            'type' => 'tab',
+            'placement' => 'top',
+            'conditional_logic' => [
+                [
+                    [
+                        'field' => 'field_lb_post_listing_show_sidebar',
+                        'operator' => '==',
+                        'value' => '1',
+                    ],
+                    [
+                        'field' => 'field_lb__post_listing_post_type',
+                        'operator' => '==',
+                        'value' => 'post',
+                    ],
+                ],
+            ],
+        ],
+
+        [
             'key' => 'field_lb_post_listing_settings_tab',
             'label' => 'Visuellt/Inställningar',
             'type' => 'tab',
             'placement' => 'top',
+        ],
+        [
+            'key' => 'field_lb_post_listing_show_sidebar',
+            'label' => __('Visa sidomeny', 'lightning'),
+            'name' => 'show_sidebar',
+            'type' => 'true_false',
+            'default_value' => 0,
+            'message' => 'En ny flik för sidomenyinställningar visas',
+            'ui' => 1,
+            'ui_on_text' => 'Visa',
+            'ui_off_text' => 'Dölj',
         ],
         [
             'key' => 'field_lb_post_listing_categories_as_filter',

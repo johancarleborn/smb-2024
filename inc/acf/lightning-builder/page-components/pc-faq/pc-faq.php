@@ -19,7 +19,7 @@ if (get_row_layout() == 'faq' && !s(get_row_layout())['hide_component']) :
                     <?php
                     if ($link['component_link']) {
                         if ($link_type['component_link_type'] === 'button') {
-                            btn_l_primary($link['component_link'], 'mt-4 lg:mt-6');
+                            button_link($link['component_link'], 'btn-primary mt-4 lg:mt-6');
                         } else {
                             custom_link($link['component_link'], 'text-primary-500 mt-4 lg:mt-6');
                         }
@@ -35,7 +35,7 @@ if (get_row_layout() == 'faq' && !s(get_row_layout())['hide_component']) :
                                 <summary class="p-4 md:p-8 faq-question flex items-center justify-between cursor-pointer [&::-webkit-details-marker]:hidden">
                                     <h4 class="flex items-center w-full gap-4 mb-0">
                                         <span class="block w-full pr-6 md:pr-8"><?= the_title(); ?></span>
-                                        <span class="duration-300 material-icons-round group-open:rotate-180">expand_more</span>
+                                        <ion-icon name="chevron-down" class="duration-300 group-open:rotate-180"></ion-icon>
                                     </h4>
                                 </summary>
                                 <div class="px-4 pb-6 faq-answer md:pb-8 md:px-8 text"><?= the_content(); ?></div>

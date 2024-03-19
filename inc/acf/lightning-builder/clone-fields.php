@@ -64,7 +64,7 @@ if (function_exists('acf_add_local_field_group')) {
                 'type' => 'wysiwyg',
                 'instructions' => __('Håll det kort och koncist. Max 2-3 meningar.', 'lightning'),
                 'tabs' => 'visual',
-                'toolbar' => 'basic',
+                'toolbar' => 'full',
                 'media_upload' => 0,
                 'delay' => 1,
             ],

@@ -21,7 +21,7 @@ if (!function_exists('component_footer')) {
             endif;
 
             if (s($field_name)['link']) :
-                s($field_name)['link_type'] === 'button' ? btn_l_primary(s($field_name)['link'], 'mt-4 lg:mt-6') : custom_link(s($field_name)['link'], 'text-primary-500 mt-4 lg:mt-6');
+                s($field_name)['link_type'] === 'button' ? button_link(s($field_name)['link'], 'btn-primary mt-4 lg:mt-6') : custom_link(s($field_name)['link'], 'text-primary-500 mt-4 lg:mt-6');
             endif;
 
             if (!$cta_only) : ?>

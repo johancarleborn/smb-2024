@@ -44,13 +44,21 @@
                     @apply pt-12 md:pt-16 lg:pt-18 xl:pt-24 xxl:pt-28;
                 }
             }
+
+            &.pc-post-hero:first-of-type {
+                @apply -mt-14 lg:-mt-[72px] pt-14 lg:pt-[72px];
+
+                > .container > div {
+                    @apply md:pt-16;
+                }
+            }
         }
     }
 
     .pc-columns {
         .column {
             .text {
-                .material-icons-round {
+                ion-icon {
                     @apply text-2xl sm:text-3xl md:text-4xl;
                     @apply leading-none #{!important};
                 }
@@ -65,7 +73,10 @@
     }
 }
 
-.material-icons-round,
 ion-icon {
     @apply pointer-events-none;
+
+    .icon-inherit > & {
+        @apply text-color-inherit size-full;
+    }
 }

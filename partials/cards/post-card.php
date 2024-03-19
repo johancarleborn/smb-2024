@@ -13,7 +13,7 @@ if (!function_exists('post_card')) {
         $link = get_permalink();
         $date = get_the_date();
         $image_id = get_post_thumbnail_id($post_id);
-        $image_classes = 'object-cover group-hover:scale-105 transition-transform duration-300 h-full w-full aspect-4/3';
+        $image_classes = 'object-cover transition-transform duration-300 h-full w-full aspect-4/3';
 ?>
         <div class="col-span-2 lg:col-span-1 card group" data-post-id="<?= $post_id; ?>">
 

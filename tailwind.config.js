@@ -1,11 +1,8 @@
+const plugin = require('tailwindcss/plugin')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-        './src/js/**/*.js',
-        './inc/acf/lightning-builder/page-components/**/*.php',
-        './inc/acf/article-builder/article-components/**/*.php',
-        './**/*.php',
-    ],
+    content: ['./src/js/**/*.js', './inc/acf/lightning-builder/page-components/**/*.php', './**/*.php'],
     // darkMode: 'class',
     corePlugins: {
         container: false,
@@ -28,7 +25,7 @@ module.exports = {
         },
 
         fontFamily: {
-            sans: ['Inter', 'sans-serif'],
+            manrope: ['Manrope', 'sans-serif'],
             material: ['"Material Icons Round"', 'sans-serif'],
         },
 
@@ -49,17 +46,37 @@ module.exports = {
                 900: '#111827',
             },
             primary: {
-                50: '#eff6ff',
-                100: '#dbeafe',
-                200: '#bfdbfe',
-                300: '#93c5fd',
-                400: '#60a5fa',
-                500: '#3b82f6',
-                600: '#2563eb',
-                700: '#1d4ed8',
-                800: '#1e40af',
-                900: '#1e3a8a',
+                50: '#F0E0FF',
+                100: '#D6ADFF',
+                200: '#BC7AFF',
+                300: '#A347FF',
+                400: '#8914FF',
+                500: '#7000E0',
+                600: '#5600AD',
+                700: '#3D007A',
+                800: '#230047',
+                900: '#0A0014',
             },
+            pink: {
+                50: '#fdf2f8',
+                100: '#fce7f3',
+                200: '#fbcfe8',
+                300: '#f9a8d4',
+                400: '#f472b6',
+                500: '#ec4899',
+                600: '#db2777',
+                700: '#be185d',
+                800: '#9d174d',
+                900: '#831843',
+                950: '#500724',
+            },
+
+            wcag: {
+                DEFAULT: 'hsl(var(--color-primary) / <alpha-value>)',
+                hover: 'hsl(var(--color-primary-hover) / <alpha-value>)',
+                active: 'hsl(var(--color-primary-active) / <alpha-value>)',
+            },
+
             background: {
                 transparent: 'transparent',
                 white: '#ffffff',
@@ -85,6 +102,7 @@ module.exports = {
                 '4/3': '4 / 3',
                 '3/4': '3 / 4',
                 video: '16 / 9',
+                hero: '16 / 8',
                 portrait: '4.5 / 5',
             },
 
@@ -129,5 +147,10 @@ module.exports = {
             },
         },
     },
-    plugins: [require('@tailwindcss/aspect-ratio')],
+    plugins: [
+        plugin(function ({ addVariant }) {
+            addVariant('wcag', '.wcag &'), addVariant('whitenav', '.whitenav &')
+        }),
+        require('@tailwindcss/aspect-ratio'),
+    ],
 }

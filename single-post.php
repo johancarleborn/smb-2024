@@ -3,8 +3,6 @@
 /**
  * @package lightning
  */
-$preamble = get_field('preamble');
-$article_components = glob(acf_path() . 'article-builder/reg-article-components/*.php');
 $tags = get_the_tags();
 $tags = join(', ', wp_list_pluck($tags, 'name'));
 $featured_image_id = get_post_thumbnail_id();
@@ -27,9 +25,9 @@ get_header();
 						image($featured_image_id, 'full', 'w-full h-auto py-4');
 					endif; ?>
 
-					<?php if ($preamble) : ?>
+					<?php if (get_the_excerpt()) : ?>
 						<div class="font-semibold preamble">
-							<?= $preamble; ?>
+							<?php the_excerpt(); ?>
 						</div>
 					<?php endif; ?>
 
@@ -38,7 +36,7 @@ get_header();
 				</header>
 
 				<div class="entry-content">
-					<?php get_template_part('article', 'builder') ?>
+					<?php the_content() ?>
 				</div>
 
 				<?php get_template_part('components/post', 'footer'); ?>

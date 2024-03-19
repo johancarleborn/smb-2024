@@ -12,9 +12,7 @@ extract(acf_fields(['picked_related_articles', 'continue_reading']));
                     <strong><?= get_the_title($next_part_id); ?></strong>
                 </p>
             </div>
-            <span class="transition-transform duration-300 text-primary-700 material-icons-round group-hover:translate-x-1 hover:text-primary-800">
-                chevron_right
-            </span>
+            <ion-icon name="chevron-forward" class="transition-transform duration-300 text-primary-700 group-hover:translate-x-1 hover:text-primary-800"></ion-icon>
         </a>
     <?php endforeach; ?>
 <?php endif; ?>

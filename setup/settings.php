@@ -56,7 +56,7 @@ add_action('after_setup_theme', 'lightning_setup');
 /************** DISABLE MENU ITEMS IN WORDPRESS ADMIN **************/
 add_action('admin_menu', function () {
 	$user = wp_get_current_user();
-	if (strpos($user->user_email, 'lightweb') === false) {
+	if (strpos($user->user_email, 'johancarleborn') === false) {
 		$customizer_url = add_query_arg('return', urlencode(remove_query_arg(wp_removable_query_args(), wp_unslash($_SERVER['REQUEST_URI']))), 'customize.php');
 
 		remove_menu_page('edit-comments.php');
@@ -71,7 +71,7 @@ add_action('admin_menu', function () {
 // in som cases we need to use the admin_init hook
 add_action('admin_init', function () {
 	$user = wp_get_current_user();
-	if (strpos($user->user_email, 'lightweb') === false) {
+	if (strpos($user->user_email, 'johancarleborn') === false) {
 		remove_submenu_page('themes.php', 'theme-editor.php');
 	}
 });
@@ -88,9 +88,9 @@ function add_item($admin_bar) {
 	$args = [
 		'id' => 'lightning-logo',
 		'title' => '<img src="' . get_template_directory_uri() . '/admin/lightweb-logo-white.svg" style="height: 20px; width: auto; margin-top: 8px;">',
-		'href' => 'https://lightweb.se',
+		'href' => 'https://johancarleborn.se',
 		'meta' => [
-			'title' => __('lightweb.se'),
+			'title' => __('johancarleborn.se'),
 		],
 	];
 	$admin_bar->add_menu($args);
@@ -100,21 +100,41 @@ add_action('admin_bar_menu', 'add_item', 10);
 
 
 // Disable Gutenberg for all posts
-add_filter('use_block_editor_for_post', '__return_false', 10);
+function disable_gutenberg_for_custom_post_types($is_enabled, $post_type) {
+	if ($post_type !== 'post') {
+		return false;
+	}
+	return $is_enabled;
+}
+add_filter('use_block_editor_for_post_type', 'disable_gutenberg_for_custom_post_types', 10, 2);
+
+// Disable all Gutenberg blocks except for the ones we want to use
+add_filter('allowed_block_types', function ($allowed_blocks, $post) {
+	$allowed_blocks = [
+		'core/paragraph',
+		'core/heading',
+		'core/list',
+		'core/image',
+		'core/quote',
+		'core/video',
+	];
+	return $allowed_blocks;
+}, 10, 2);
+
 
 
 // Disable standard editor for some post types
 add_action('admin_init', function () {
-	remove_post_type_support('post', 'editor');
+	// remove_post_type_support('post', 'editor');
 	remove_post_type_support('case', 'editor');
 	remove_post_type_support('page', 'editor');
 });
 
 
-// Hide admin bar for lightweb users
+// Hide admin bar for johancarleborn users
 add_action('init', function () {
 	$user = wp_get_current_user();
-	if (strpos($user->user_email, 'lightweb') !== false) {
+	if (strpos($user->user_email, 'johancarleborn') !== false) {
 		add_filter('show_admin_bar', '__return_false');
 	}
 });
@@ -157,11 +177,11 @@ function add_file_types_to_uploads($file_types) {
 add_action('upload_mimes', 'add_file_types_to_uploads');
 
 
-// Hide acf for non-Lightweb users
+// Hide acf for non-Johancarleborn users
 add_filter('acf/settings/show_admin', 'my_acf_show_admin');
 function my_acf_show_admin($show) {
 	$user = wp_get_current_user();
-	if (strpos($user->user_email, 'lightweb') !== false) {
+	if (strpos($user->user_email, 'johancarleborn') !== false) {
 		return true;
 	}
 }

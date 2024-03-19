@@ -36,13 +36,13 @@ $footer_copyright =
 					$qty = count(get_field('footer_col_repeater', 'options'));
 				?>
 
-					<div class="pb-2 bg-white border border-gray-100 md:bg-transparent footer-col md:border-none">
+					<div class="pb-2 footer-col md:border-none">
 						<?php if ($title) : ?>
-							<h4 class="px-3 pt-2 mb-0 after:content-['\e5cf'] md:after:!content-none text-black footer-col-title md:mb-3 ac-header"><?= $title; ?></h4>
+							<h2 class="px-3 pt-2 mb-0 text-lg tracking-normal text-black font-manrope footer-col-title md:mb-3"><?= $title; ?></h2>
 						<?php endif; ?>
 
 						<?php if (have_rows('footer_col_links', 'options')) : ?>
-							<ul class="hidden px-3 pt-2 m-0 md:block">
+							<ul class="px-3 pt-2 m-0">
 								<?php while (have_rows('footer_col_links', 'options')) : the_row();
 									$link = get_sub_field('footer_col_link');
 									$icon = get_sub_field('icon');
@@ -71,9 +71,9 @@ $footer_copyright =
 				<div class="footer-col-so-me">
 
 					<?php if (get_field('footer_title_social_media', 'options')) : ?>
-						<h4 class="pt-2 mb-0 text-black footer-col-title md:mb-3">
+						<h2 class="pt-2 mb-0 text-lg tracking-normal text-black font-manrope footer-col-title md:mb-3">
 							<?= get_field('footer_title_social_media', 'options'); ?>
-						</h4>
+						</h2>
 					<?php endif; ?>
 
 					<ul class="pt-3">
@@ -122,6 +122,9 @@ $footer_copyright =
 <?php
 popup();
 wp_footer(); ?>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>
 

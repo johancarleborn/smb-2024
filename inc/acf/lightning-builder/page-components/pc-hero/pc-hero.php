@@ -36,8 +36,8 @@ if (get_row_layout() == 'hero' && !s(get_row_layout())['hide_component']) :
                         ?>
 
                         <div class="flex gap-4 md:gap-6 lg:gap-8 <?= !$is_horizontal ? 'justify-center md:mb-6 lg:mb-8 xl:mb-12' : '' ?>">
-                            <?php btn_l_primary($hero_link, 'mt-8'); ?>
-                            <?php btn_l_secondary($hero_link_secondary, 'mt-8'); ?>
+                            <?php button_link($hero_link, 'btn-primary mt-8'); ?>
+                            <?php button_link($hero_link_secondary, 'btn-secondary mt-8'); ?>
                         </div>
                     </div>
                 </div>

@@ -3,10 +3,10 @@
 /**
  * Link as button - Primary
  */
-if (!function_exists('btn_l_primary')) {
-    function btn_l_primary($link, string $class = null, $data = null) {
+if (!function_exists('button_link')) {
+    function button_link($link, string $class = null, $data = null) {
         if ($link) { ?>
-            <a class="btn btn-primary <?= $class; ?>" <?= $data; ?> href="<?= $link['url']; ?>" target="<?= $link['target']; ?>">
+            <a class="btn <?= $class; ?>" <?= $data; ?> href="<?= $link['url']; ?>" target="<?= $link['target']; ?>">
                 <?= $link['title']; ?>
             </a>
         <?php }
@@ -17,43 +17,10 @@ if (!function_exists('btn_l_primary')) {
 /**
  * Primary button
  */
-if (!function_exists('btn_primary')) {
-    function btn_primary(string $text, string $class = null, $data = null) {
+if (!function_exists('button')) {
+    function button(string $text, string $class = null, $data = null) {
         if ($text) { ?>
-            <button class="btn btn-primary <?= $class; ?>" <?= $data; ?>>
-                <?= __($text, 'lightning'); ?>
-            </button>
-        <?php }
-    }
-}
-
-
-/**
- *
- * Link as button - Secondary
- *
- */
-
-if (!function_exists('btn_l_secondary')) {
-    function btn_l_secondary($link, string $class = null, $data = null) {
-        if ($link) { ?>
-            <a class="btn btn-secondary <?= $class; ?>" <?= $data; ?> href="<?= $link['url']; ?>" target="<?= $link['target']; ?>">
-                <?= $link['title']; ?>
-            </a>
-        <?php }
-    }
-}
-
-
-/**
- *
- * Secondary button
- *
- */
-if (!function_exists('btn_secondary')) {
-    function btn_secondary(string $text, string $class = null, $data = null) {
-        if ($text) { ?>
-            <button class="btn btn-secondary <?= $class; ?>" <?= $data; ?>>
+            <button class="btn <?= $class; ?>" <?= $data; ?>>
                 <?= __($text, 'lightning'); ?>
             </button>
         <?php }
@@ -89,9 +56,7 @@ if (!function_exists('btn_load_more')) {
 
         <button type="button" aria-label="<?= __('Ladda fler poster', 'lightning') ?>" class="btn btn-secondary load-more disabled:border-none group" <?= $data_set ?> data-post-type="<?= $post_type ?>">
             <span class="pointer-events-none load-more-text"><?= __('Ladda fler', 'lightning'); ?></span>
-            <span class="hidden ml-2 pointer-events-none material-icons-round animate-spin group-[.loading]:block">
-                rotate_right
-            </span>
+            <ion-icon name="refresh-outline" class="hidden ml-2 pointer-events-none animate-spin group-[.loading]:block"></ion-icon>
         </button>
 <?php }
 }

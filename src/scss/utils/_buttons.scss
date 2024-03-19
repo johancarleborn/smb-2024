@@ -1,15 +1,19 @@
 @layer base {
     .btn-primary,
     input[type='submit'] {
-        @apply text-white bg-primary-500 hover:bg-primary-400 active:bg-primary-300 text-white;
+        @apply text-white bg-primary-500 hover:bg-primary-600 focus:bg-primary-600 active:bg-primary-700;
     }
 
     .btn-secondary {
-        @apply hover:text-white text-primary-500 ring-1 ring-inset ring-primary-100 bg-primary-100 hover:bg-primary-400 hover:ring-primary-400 active:bg-primary-300;
+        @apply text-white ring-1 ring-inset ring-pink-500 bg-pink-500 hover:bg-pink-600 focus:bg-pink-600 hover:ring-pink-600 active:bg-pink-700;
+    }
+
+    .btn-outlined {
+        @apply text-primary-500 ring-1 ring-inset ring-primary-500 hover:bg-primary-500 hover:text-white active:bg-primary-400;
     }
 
     .btn,
     input[type='submit'] {
-        @apply inline-flex items-center justify-center px-5 py-3 text-sm lg:text-lg md:text-base font-semibold  md:px-6 transition-all duration-300 disabled:bg-gray-300 disabled:ring-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed;
+        @apply rounded inline-flex font-manrope items-center justify-center px-5 py-3 text-sm lg:text-lg md:text-base font-semibold  md:px-6 transition-all duration-300 disabled:bg-gray-300 disabled:ring-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed;
     }
 }

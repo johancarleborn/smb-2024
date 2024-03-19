@@ -4,14 +4,14 @@ if (get_row_layout() == 'post_listing' && !s(get_row_layout())['hide_component']
     extract(acf_sub_fields(['post_type', 'qty', 'offset', 'card_text_colors', 'card_bg_colors', 'content_type', 'columns', 'categories_as_filter']));
 
     $card_classes = $card_text_colors;
-    $grid_classes = 'grid gap-6 lg:gap-8 xxl:gap-12 post-listing md:grid-cols-2 items-stretch lg:grid-cols-' . $columns;
+    $grid_classes = 'grid gap-6 lg:gap-8 xxl:gap-12 post-listing items-stretch lg:grid-cols-' . $columns;
 
     if ($post_type == 'post') {
-        $grid_classes .= ' md:grid-cols-4';
+        $grid_classes .= ' sm:grid-cols-4';
     }
 
     if ($post_type == 'testimonial') {
-        $grid_classes .= ' items-start';
+        $grid_classes .= ' md:grid-cols-2 items-start';
     }
 
     if ($post_type == 'coworker') {

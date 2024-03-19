@@ -26,7 +26,7 @@ if (!function_exists('social_share')) {
                 <img src="<?= get_stylesheet_directory_uri() . '/src/assets/icons/social/icon-fb-d.svg' ?>" alt="Dela på Facebook">
             </a>
 
-            <a class="twitter-share" href="https://twitter.com/intent/tweet?hashtags=lightweb&original_referer=<?php the_permalink(); ?>&ref_src=twsrc%5Etfw&related=lightweb&text=<?php the_title(); ?> <?php the_permalink(); ?>&via=lightweb" target="_blank" title="Dela på X" data-tooltip-top="Dela på X">
+            <a class="twitter-share" href="https://twitter.com/intent/tweet?hashtags=supermiljoblogg&original_referer=<?php the_permalink(); ?>&ref_src=twsrc%5Etfw&related=supermiljoblogg&text=<?php the_title(); ?> <?php the_permalink(); ?>&via=supermiljoblogg" target="_blank" title="Dela på X" data-tooltip-top="Dela på X">
 
                 <img src="<?= get_stylesheet_directory_uri() . '/src/assets/icons/social/icon-tw-d.svg' ?>" alt="Dela på LinkedIn">
             </a>
@@ -38,8 +38,10 @@ if (!function_exists('social_share')) {
 
             <div class="relative flex flex-col items-center gap-3 share-more">
                 <button class="<?= $type == 'row' ? 'ac-open-bottom' : 'ac-header'; ?> cursor-pointer group after:!content-none" data-tooltip-top="Mer">
-                    <div class="flex items-center justify-center overflow-hidden text-primary-800 bg-white rounded-full text-center text-3xl material-icons-round group-[.active]:hidden">share</div>
-                    <div class="items-center justify-center overflow-hidden text-primary-800 bg-white rounded-full text-center text-3xl material-icons-round hidden group-[.active]:flex">close</div>
+
+                    <ion-icon name="share-social-outline" class="flex items-center justify-center overflow-hidden text-primary-800 bg-white rounded-full text-center text-3xl group-[.active]:hidden"></ion-icon>
+
+                    <ion-icon name="close-outline" class="items-center justify-center overflow-hidden text-primary-800 bg-white rounded-full text-center text-3xl hidden group-[.active]:flex"></ion-icon>
                 </button>
 
                 <div class="absolute flex-col hidden gap-3">
@@ -50,7 +52,7 @@ if (!function_exists('social_share')) {
 
                     <a class="mail-share" href="mailto:?subject=<?= get_bloginfo('name') ?>: <?php the_title(); ?>&body=<?= 'Läs på ' . get_bloginfo('name') . ': ' . get_the_title() . '%0D%0A' . get_the_permalink(); ?>" target="_blank" alt="E-post" title="E-post" data-tooltip-top="Maila">
 
-                        <div class="text-3xl leading-none text-primary-800 material-icons-round">email</div>
+                        <ion-icon name="mail-outline" class="text-3xl leading-none text-primary-800"></ion-icon>
 
                     </a>
                 </div>

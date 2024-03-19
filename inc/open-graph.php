@@ -23,7 +23,7 @@ function og_tags_in_head() {
     }
     echo '<meta property="og:type" content="article"/>';
     echo '<meta property="og:url" content="' . esc_url(get_permalink()) . '"/>';
-    echo '<meta property="og:site_name" content="Lightweb"/>';
+    echo '<meta property="og:site_name" content="SMB"/>';
     if (!has_post_thumbnail($post->ID)) {
         $default_image = esc_url(get_stylesheet_directory_uri() . '/admin/lw-logo-black.png');
         echo '<meta property="og:image" content="' . $default_image . '"/>';

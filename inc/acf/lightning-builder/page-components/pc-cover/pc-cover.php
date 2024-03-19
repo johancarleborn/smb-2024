@@ -38,8 +38,8 @@ if (get_row_layout() == 'cover' && !s(get_row_layout())['hide_component']) :
                         </div>
 
                         <div class="flex flex-wrap items-center gap-3 mt-3 md:mt-4 md:gap-6 lg:gap-8 xl:gap-12 <?= $cover_text_align['text_align'] == 'text-center' ? ' text-center justify-center' : ''; ?>">
-                            <?php btn_l_primary($cover_btn); ?>
-                            <?php btn_l_secondary($cover_btn_2); ?>
+                            <?php button_link($cover_btn, 'btn-primary'); ?>
+                            <?php button_link($cover_btn_2, 'btn-secondary'); ?>
                         </div>
                     </div>
 
@@ -60,7 +60,7 @@ if (get_row_layout() == 'cover' && !s(get_row_layout())['hide_component']) :
                             <?php endif; ?>
                         <?php endif; ?>
 
-                        <?= overlay('z-0', $overlay) ?>
+                        <?= overlay($overlay, 'z-0') ?>
                     </div>
                 </div>
                 <?php if ($cover_boxed) : ?>

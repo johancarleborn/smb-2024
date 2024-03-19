@@ -47,12 +47,10 @@ if (!function_exists('get_author')) {
                 <?php if ($extra == 'date' && $date) : ?>
                     <div class="flex items-center">
                         <small class="text-xs flex items-center date <?= $updated ? 'lighter' : ''; ?>" data-tooltip-top="<?= __('Publicerades', 'lightning'); ?>">
-                            <span class="mr-1 text-sm material-icons-round">create</span>
                             <?= $date; ?>
                         </small>
                         <?php if ($updated && $is_updated) : ?>
                             <small class="flex items-center ml-3 text-xs text-gray-400 date updated" data-tooltip-top="<?= __('Uppdaterades', 'lightning'); ?>">
-                                <span class="mr-1 text-sm material-icons-round">update</span>
                                 <?= $updated; ?>
                             </small>
                         <?php endif; ?>

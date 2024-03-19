@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/acf-arrays/material-icons.php';
+include __DIR__ . '/acf-arrays/ion-icons.php';
 
 acf_add_local_field_group([
     'key' => 'group_theme_footer',

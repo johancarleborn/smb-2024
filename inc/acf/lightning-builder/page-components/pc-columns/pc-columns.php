@@ -14,7 +14,6 @@ if (get_row_layout() == 'columns' && !s(get_row_layout())['hide_component']) :
 
                     <?php while (have_rows('columns_cols')) : the_row();
                         extract(acf_sub_fields(['title', 'text', 'media_type', 'img', 'video', 'icon', 'link', 'inherit']));
-                        $is_button = $link && $link['title'] && $card_view;
                         $is_video = ($media_type === 'video');
                         $is_image = ($media_type === 'img');
                         $is_icon = ($media_type === 'icon');
@@ -100,18 +99,11 @@ if (get_row_layout() == 'columns' && !s(get_row_layout())['hide_component']) :
                                 <?php endif; ?>
 
                                 <?php
-                                // BUTTON
-                                if ($is_button) :
-                                    btn_primary($link['title'], 'mx-4 mt-auto mb-4 sm:mx-0 sm:w-full');
-                                ?>
-                                <?php endif; ?>
-
-                                <?php
                                 // LINK (IF NOT USING CARD VIEW)
                                 if ($link && $link['title'] && !$card_view) : ?>
                                     <p class="inline-flex items-center mt-2 font-semibold sm:mt-4 md:mt-6 gap-x-4">
                                         <?= $link['title']; ?>
-                                        <span class="text-base transition-transform duration-300 material-icons-round group-hover:translate-x-1">arrow_forward_ios</span>
+                                        <ion-icon name="arrow-forward" class="text-base transition-transform duration-300 group-hover:translate-x-1"></ion-icon>
                                     </p>
                                 <?php endif; ?>
 

@@ -1,7 +1,7 @@
 {
   "name": "lwlightning",
   "version": "1.0.0",
-  "repository": "git@github.com:lightwebs/smb.git",
+  "repository": "git@github.com:johancarleborn/smb.git",
   "author": "Johan Carleborn <johancarleborn@gmail.com>",
   "scripts": {
     "clean": "rm -r dist/* .parcel-cache/* yarn.lock .DS_Store",

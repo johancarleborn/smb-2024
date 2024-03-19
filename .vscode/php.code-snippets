@@ -41,5 +41,9 @@
     "Hydrated ACF fields": {
         "prefix": "ex",
         "body": "extract(acf_sub_fields(['$1']));"
-    }
+    },
+    "Ion Icon": {
+        "prefix": "ion",
+        "body": "<ion-icon name=\"$1\"></ion-icon>"
+    },
 }

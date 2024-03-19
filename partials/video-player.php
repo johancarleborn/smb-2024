@@ -39,7 +39,7 @@ function video_player($video_url, $classes = null, $controls = false, $autoplay 
         <?php if ($autoplay) : ?>
             <div class="absolute inset-0 z-10 flex items-center justify-center p-4 lg:p-6 <?= $controls ? 'play-video group/play cursor-pointer' : '' ?>">
                 <?php if ($controls) : ?>
-                    <span class="p-2 text-5xl text-white transition-all duration-300 rounded-full pointer-events-none material-icons-round lg:opacity-0 lg:group-hover/play:opacity-100 lg:text-6xl lg:group-hover/play:bg-black/40">play_circle_outline</span>
+                    <ion-icon name="play-circle-outline" class="p-2 text-5xl text-white transition-all duration-300 rounded-full pointer-events-none lg:opacity-0 lg:group-hover/play:opacity-100 lg:text-6xl lg:group-hover/play:bg-black/40"></ion-icon>
                 <?php endif; ?>
             </div>
         <?php endif; ?>
