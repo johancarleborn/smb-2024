@@ -18,9 +18,9 @@ $accent_colors = [];
 
 if (is_admin()) {
 
-$bg_colors = ['bg-[transparent]' => __('transparent', 'lightning') , 'bg-[#ffffff]' => __('white', 'lightning') , 'bg-[#000C24]' => __('black', 'lightning')];
+$bg_colors = ['bg-[transparent]' => __('transparent', 'lightning') , 'bg-[#ffffff]' => __('white', 'lightning') , 'bg-[#F7F0FF]' => __('lightpurple', 'lightning')];
 $text_colors = ['text-[#000000]' => __('black', 'lightning') , 'text-[#ffffff]' => __('white', 'lightning')];
-$accent_colors = ['text-[#3b82f6]' => __('blue', 'lightning') , 'text-[#6b7280]' => __('gray', 'lightning')];
+$accent_colors = ['text-[#ffffff]' => __('white', 'lightning') , 'text-[#7000E0]' => __('purple', 'lightning') , 'text-[#3D007A]' => __('darkpurple', 'lightning') , 'text-[#ec4899]' => __('pink', 'lightning')];
 
     add_action('admin_head', function () use ($bg_colors, $text_colors, $accent_colors) {
         $colors_css = '';

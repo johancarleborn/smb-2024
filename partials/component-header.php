@@ -7,7 +7,7 @@
  */
 function header_top_title($field_name, $top_title_class = '') {
     if ($field_name) { ?>
-        <span class="block mb-2 text-sm font-semibold uppercase md:mb-3 <?= $top_title_class ?>">
+        <span class="block mb-2 text-sm font-extrabold uppercase md:mb-3 <?= $top_title_class ?>">
             <?= s($field_name)['top_title'] ?>
         </span>
         <?php }

@@ -92,7 +92,7 @@ function acf_fields_flexible_content_layout_title($title, $field, $layout, $i) {
 
     if ($layout['name'] == 'post_listing') {
         $offset = get_sub_field('offset') ? ' (Hoppar över ' . get_sub_field('offset') . ')</span>' : '';
-        $qty = get_sub_field('qty') ? get_sub_field('qty') : 'alla';
+        $qty = get_sub_field('qty') ? get_sub_field('qty') : (get_sub_field('content_type') == 'picked' ? 'utvalda' : 'alla');
 
         $title .= ' - <b style="color:#4364f7; margin-left: 4px; margin-right: 4px;" class="featured-post">Visar ' . $qty . ' inlägg. <span style="color: #859bfe;">' . $offset . '</b>';
     }

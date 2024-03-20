@@ -18,19 +18,22 @@ if (!function_exists('post_card')) {
         <div class="col-span-2 lg:col-span-1 card group" data-post-id="<?= $post_id; ?>">
 
             <div class="h-full <?= $class; ?>">
-                <a class="flex flex-col h-full" href="<?= $link; ?>">
+                <a class="flex flex-col group-[.picked]/pl:gap-6 group-[.picked]/pl:items-start group-[.picked]/pl:flex-row h-full" href="<?= $link; ?>">
 
-                    <div class="w-full overflow-hidden card-image">
-                        <?= image($image_id, 'medium_large', $image_classes); ?>
+                    <div class="w-full overflow-hidden card-image group-[.picked]/pl:shrink-0 group-[.picked]/pl:max-w-56">
+                        <?= image($image_id, 'medium_large', $image_classes . ' '); ?>
                     </div>
 
-                    <div class="flex flex-col md:col-span-3 card-body p-4 xl:p-6 <?= $body_class ?> <?= str_contains($class, 'bg-[transparent]') ? '!px-0' : ''; ?>">
+                    <div class="flex flex-col md:col-span-3 card-body group-[.picked]/pl:py-0 py-4 xl:py-6 <?= $body_class ?>">
 
-                        <?php get_post_terms($post_id, 'category', 'mb-4'); ?>
+                        <h4 class="mb-2 text-xxl"><?= $title; ?></h4>
+                        <div class="group-[.picked]/pl:line-clamp-3"><?= excerpt(40); ?></div>
 
-                        <h4 class="mb-2"><?= $title; ?></h4>
-                        <small class="mb-4"><?= $date; ?></small>
-                        <div class=""><?= custom_excerpt($excerpt_length, 'preamble', $post_id); ?></div>
+                        <div class="flex items-center gap-2 mt-2 text-xs font-medium">
+                            <?php get_post_terms($post_id, 'category'); ?>
+                            <span class="size-1.5 rounded-full shrink-0 bg-primary-900"></span>
+                            <date class="text-gray-400"><?= $date; ?></date>
+                        </div>
 
                     </div>
                 </a>

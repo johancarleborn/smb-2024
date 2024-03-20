@@ -80,15 +80,17 @@ module.exports = {
             background: {
                 transparent: 'transparent',
                 white: '#ffffff',
-                black: '#000C24',
+                lightpurple: '#F7F0FF',
             },
             text: {
                 black: '#000000',
                 white: '#ffffff',
             },
             accent: {
-                blue: '#3b82f6',
-                gray: '#6b7280',
+                white: '#ffffff',
+                purple: '#7000E0',
+                darkpurple: '#3D007A',
+                pink: '#ec4899',
             },
             validation: {
                 error: '#DF5050',
@@ -118,7 +120,8 @@ module.exports = {
 
             fontSize: {
                 inherit: 'inherit',
-                '2.5xl': '1.75rem',
+                xxl: '1.375rem', // 22px
+                '2.5xl': '1.75rem', // 28px
             },
 
             lineHeight: {

@@ -67,7 +67,16 @@ return [
             'max' => '4',
             'default_value' => '4',
             'step' => '1',
-            'wrapper' => ['width' => 33]
+            'wrapper' => ['width' => 33],
+            'conditional_logic' => [
+                [
+                    [
+                        'field' => 'field_lb_post_listing_show_sidebar',
+                        'operator' => '==',
+                        'value' => 0,
+                    ],
+                ],
+            ],
         ],
         [
             'key' => 'field_lb_post_listing_qty',
@@ -288,64 +297,6 @@ return [
                     ],
                 ],
             ],
-        ],
-        [
-            'key' => 'field_lb_card_settings_start',
-            'label' => __('Kortinställning', 'lightning'),
-            'name' => 'card_settings_start',
-            'type' => 'message',
-            'esc_html' => 0,
-            'new_lines' => 'wpautop',
-            'wrapper' => ['width' => 100]
-        ],
-        [
-            'key' => 'field_lb_post_listing_cards_bgcolors',
-            'label' => 'Kortens bakgundsfärg',
-            'name' => 'card_bg_colors',
-            'type' => 'button_group',
-            'wrapper' => ['class' => 'colors-group bg-colors-group'],
-            'choices' => $bg_colors,
-            'return_format' => 'value',
-            'allow_null' => 0,
-            'layout' => 'horizontal',
-            'conditional_logic' => [
-                [
-                    [
-                        'field' => 'field_lb__post_listing_post_type',
-                        'operator' => '==',
-                        'value' => 'post',
-                    ],
-                ],
-            ],
-        ],
-        [
-            'key' => 'field_lb_post_listing_cards_colors',
-            'label' => 'Kortens textfärg',
-            'name' => 'card_text_colors',
-            'type' => 'button_group',
-            'wrapper' => ['class' => 'colors-group text-colors-group'],
-            'choices' => $text_colors,
-            'return_format' => 'value',
-            'allow_null' => 0,
-            'layout' => 'horizontal',
-            'conditional_logic' => [
-                [
-                    [
-                        'field' => 'field_lb__post_listing_post_type',
-                        'operator' => '!=',
-                        'value' => 'coworker',
-                    ],
-                ],
-            ],
-        ],
-        [
-            'key' => 'field_lb_card_settings_end',
-            'label' => __('', 'lightning'),
-            'name' => 'card_settings_end',
-            'type' => 'message',
-            'esc_html' => 0,
-            'new_lines' => 'wpautop',
-            'wrapper' => ['width' => 100]
         ],
         [
             'key' => 'field_lb_post_listing_colors',

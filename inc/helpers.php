@@ -220,7 +220,7 @@ function get_post_terms($post_id, string $taxonomy, $class = null, $term_class =
 
     <div class="flex flex-wrap gap-1 <?= $class; ?>">
         <?php foreach ($taxonomy as $tax) : ?>
-            <div class="px-2 py-1 mr-1 text-xs font-semibold text-primary-700 bg-primary-100 rounded <?= $term_class; ?>">
+            <div class="mr-1 text-xs font-bold text-primary-900 <?= $term_class; ?>">
                 <?= $tax->name; ?>
             </div>
         <?php endforeach; ?>
@@ -299,7 +299,7 @@ function excerpt($limit) {
     //$excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
     if (strpos($excerpt, ':: ') !== false) {
         $excerpt = str_replace(':: ', '</strong> ', $excerpt);
-        $excerpt = '<strong class="text-pink-600">' . $excerpt;
+        $excerpt = '<strong class="font-bold text-pink-600">' . $excerpt;
     }
     return $excerpt;
 }
