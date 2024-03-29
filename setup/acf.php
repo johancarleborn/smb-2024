@@ -59,6 +59,14 @@ add_filter('acf/fields/flexible_content/layout_title/name=lb_components', 'acf_f
 add_filter('acf/fields/flexible_content/layout_title/name=ab_components', 'acf_fields_flexible_content_layout_title', 10, 4);
 
 function acf_fields_flexible_content_layout_title($title, $field, $layout, $i) {
+    if ($layout['name'] == 'post_listing') {
+        $post_type_object = get_post_type_object(get_sub_field('post_type'));
+        $post_type = $post_type_object->labels->name;
+
+        if (!empty($post_type)) {
+            $title = str_replace('poster', $post_type, $title);
+        }
+    }
 
     $icon_image_path = get_stylesheet_directory() . '/inc/acf/lightning-builder/page-components/pc-' . str_replace('_', '-', $layout['name']) . '/' . $layout['name'] . '.svg';
     $preview_image_path = get_stylesheet_directory() . '/inc/acf/lightning-builder/page-components/pc-' . str_replace('_', '-', $layout['name']) . '/pre-' . $layout['name'] . '.jpg';
@@ -93,8 +101,11 @@ function acf_fields_flexible_content_layout_title($title, $field, $layout, $i) {
     if ($layout['name'] == 'post_listing') {
         $offset = get_sub_field('offset') ? ' (Hoppar över ' . get_sub_field('offset') . ')</span>' : '';
         $qty = get_sub_field('qty') ? get_sub_field('qty') : (get_sub_field('content_type') == 'picked' ? 'utvalda' : 'alla');
+        $post_type_object = get_post_type_object(get_sub_field('post_type'));
+        $post_type = $post_type_object->labels->name;
 
-        $title .= ' - <b style="color:#4364f7; margin-left: 4px; margin-right: 4px;" class="featured-post">Visar ' . $qty . ' inlägg. <span style="color: #859bfe;">' . $offset . '</b>';
+
+        $title .= ' - <b style="color:#4364f7; margin-left: 4px; margin-right: 4px;" class="featured-post">Visar ' . $qty . ' ' . $post_type . '. <span style="color: #859bfe;">' . $offset . '</b>';
     }
 
     return $title;

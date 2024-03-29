@@ -32,7 +32,10 @@ module.exports = {
         colors: {
             transparent: 'transparent',
             white: '#ffffff',
-            black: '#000000',
+            black: {
+                DEFAULT: '#1A1A1A',
+                950: '#000000',
+            },
             gray: {
                 50: '#f9fafb',
                 100: '#f3f4f6',
@@ -71,7 +74,7 @@ module.exports = {
                 950: '#500724',
             },
 
-            wcag: {
+            cta: {
                 DEFAULT: 'hsl(var(--color-primary) / <alpha-value>)',
                 hover: 'hsl(var(--color-primary-hover) / <alpha-value>)',
                 active: 'hsl(var(--color-primary-active) / <alpha-value>)',
@@ -120,6 +123,7 @@ module.exports = {
 
             fontSize: {
                 inherit: 'inherit',
+                xxs: '0.625rem', // 10px
                 xxl: '1.375rem', // 22px
                 '2.5xl': '1.75rem', // 28px
             },

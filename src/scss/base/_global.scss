@@ -80,3 +80,21 @@ ion-icon {
         @apply text-color-inherit size-full;
     }
 }
+
+.breadcrumbs {
+    a {
+        @apply hover:text-primary-500;
+    }
+
+    strong {
+        @apply text-gray-700;
+    }
+}
+
+.wp-block-image {
+    @apply relative -ml-3 w-[calc(100%+24px)] lg:-ml-28 lg:w-[calc(100%+224px)] my-6;
+
+    figcaption {
+        @apply text-center text-sm text-gray-500;
+    }
+}

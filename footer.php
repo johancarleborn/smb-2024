@@ -1,8 +1,4 @@
 <?php
-$logo = get_field('footer_logo', 'options');
-$logo_dark = get_field('footer_logo_dark', 'options');
-$text = get_field('footer_text', 'options');
-$social_media_text = get_field('footer_col_social_media_text', 'options');
 $footer_copyright =
 	get_field('footer_copyright', 'options') ?
 	get_field('footer_copyright', 'options') :
@@ -11,20 +7,30 @@ $footer_copyright =
 
 <footer class="py-6 site-footer md:py-9 xl:py-16 bg-slate-100">
 	<div class="container">
-		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-6 lg:gap-12">
-			<div class="footer-col">
-				<?php if ($logo) : ?>
-					<div class="footer-logo">
-						<?php image($logo, 'full'); ?>
+		<div class="grid grid-cols-2 gap-x-4 gap-y-6 lg:grid-cols-4 sm:gap-12">
 
-						<?php if ($logo_dark) : ?>
-							<?php image($logo_dark, 'full hidden'); ?>
+			<div class="col-span-2 footer-col md:col-span-1">
+				<?php if (globalACF()['footer_logo']) : ?>
+					<div class="footer-logo max-w-72">
+						<?php image(globalACF()['footer_logo'], 'full'); ?>
+
+						<?php if (globalACF()['footer_logo_dark']) : ?>
+							<?php image(globalACF()['footer_logo_dark'], 'full hidden'); ?>
 						<?php endif; ?>
 					</div>
 				<?php endif; ?>
-				<?php if ($text) : ?>
-					<div class="mt-2 text-black footer-text lg:mt-4">
-						<?= $text; ?>
+			</div>
+
+			<div>
+				<?php if (globalACF()['footer_text_title']) : ?>
+					<h2 class="pt-2 mb-0 text-lg tracking-normal text-black font-manrope footer-col-title md:mb-3">
+						<?= globalACF()['footer_text_title']; ?>
+					</h2>
+				<?php endif; ?>
+
+				<?php if (globalACF()['footer_text']) : ?>
+					<div class="mt-2 text-black footer-text text *:text-sm *:font-manrope lg:mt-4">
+						<?= globalACF()['footer_text']; ?>
 					</div>
 				<?php endif; ?>
 			</div>
@@ -38,18 +44,18 @@ $footer_copyright =
 
 					<div class="pb-2 footer-col md:border-none">
 						<?php if ($title) : ?>
-							<h2 class="px-3 pt-2 mb-0 text-lg tracking-normal text-black font-manrope footer-col-title md:mb-3"><?= $title; ?></h2>
+							<h2 class="pt-2 mb-0 text-lg tracking-normal text-black font-manrope footer-col-title md:mb-3"><?= $title; ?></h2>
 						<?php endif; ?>
 
 						<?php if (have_rows('footer_col_links', 'options')) : ?>
-							<ul class="px-3 pt-2 m-0">
+							<ul class="pt-2 m-0">
 								<?php while (have_rows('footer_col_links', 'options')) : the_row();
 									$link = get_sub_field('footer_col_link');
 									$icon = get_sub_field('icon');
 
 									if ($link) : ?>
 										<li class="mb-2">
-											<a class="inline-flex items-center text-black footer-col-link gap-x-2" href="<?= $link['url']; ?>">
+											<a class="inline-flex items-center text-sm text-black lg:hover:underline lg:hover:text-cta-hover active:text-cta-active footer-col-link gap-x-2" href="<?= $link['url']; ?>">
 												<?php if ($icon) : ?>
 													<?= $icon; ?>
 												<?php endif; ?>
@@ -65,60 +71,66 @@ $footer_copyright =
 					</div>
 				<?php endwhile; ?>
 			<?php endif; ?>
-
-			<?php if (have_rows('footer_col_social_media', 'options')) : ?>
-
-				<div class="footer-col-so-me">
-
-					<?php if (get_field('footer_title_social_media', 'options')) : ?>
-						<h2 class="pt-2 mb-0 text-lg tracking-normal text-black font-manrope footer-col-title md:mb-3">
-							<?= get_field('footer_title_social_media', 'options'); ?>
-						</h2>
-					<?php endif; ?>
-
-					<ul class="pt-3">
-						<?php while (have_rows('footer_col_social_media', 'options')) : the_row();
-							extract(acf_sub_fields(['footer_col_link', 'footer_col_icon']));
-						?>
-							<?php if ($footer_col_link) : ?>
-								<li>
-									<a class="flex items-center justify-start footer-col-link" href="<?= $footer_col_link['url']; ?>" target="<?= $footer_col_link['target']; ?>" title="<?= $footer_col_link['title']; ?>">
-										<?php if ($footer_col_icon) : ?>
-											<?= $footer_col_icon ?>
-										<?php endif; ?>
-
-										<span class="ml-1 text-black">
-											<?= $footer_col_link['title']; ?>
-										</span>
-									</a>
-								</li>
-							<?php endif; ?>
-						<?php endwhile; ?>
-					</ul>
-
-					<?php if ($social_media_text) : ?>
-						<div class="mt-4 text-black footer-text">
-							<?= $social_media_text; ?>
-						</div>
-					<?php endif; ?>
-
-				</div>
-			<?php endif; ?>
-
-
 		</div>
 	</div>
 
-	<?php if ($footer_copyright) : ?>
-		<div class="pt-4 mt-4 text-sm border-t border-t-gray-100">
-			<div class="container">
-				<?= $footer_copyright ?>
+	<?php if (have_rows('footer_col_social_media', 'options')) : ?>
+
+		<div class="container">
+
+			<ul class="flex items-center gap-4 py-12 sm:justify-center">
+				<?php while (have_rows('footer_col_social_media', 'options')) : the_row();
+					extract(acf_sub_fields(['footer_col_link', 'footer_col_icon']));
+				?>
+					<?php if ($footer_col_link) : ?>
+						<li class="mb-2">
+							<a class="flex items-center justify-start text-base lg:hover:underline lg:hover:text-cta-hover active:text-cta-active footer-col-link" href="<?= $footer_col_link['url']; ?>" target="<?= $footer_col_link['target']; ?>" title="<?= $footer_col_link['title']; ?>">
+								<?php if ($footer_col_icon) : ?>
+									<?= $footer_col_icon ?>
+								<?php endif; ?>
+
+								<span class="ml-2 text-black">
+									<?= $footer_col_link['title']; ?>
+								</span>
+							</a>
+						</li>
+					<?php endif; ?>
+				<?php endwhile; ?>
+			</ul>
+
+		</div>
+
+	<?php endif; ?>
+
+	<div class="pt-4 text-sm border-t border-t-gray-100">
+		<div class="container">
+			<div class="flex justify-between gap-4">
+
+				<?php if (have_rows('footer_legal_links', 'option')) : ?>
+
+					<div class="flex items-center gap-4 md:gap-6 lg:gap-8">
+						<?php while (have_rows('footer_legal_links', 'option')) : the_row();
+							$link = get_sub_field('link');
+							if ($link) : ?>
+								<a class="text-black lg:hover:text-cta-hover active:text-cta-active lg:hover:underline" href="<?= $link['url']; ?>" target="<?= $link['target']; ?>" title="<?= $link['title']; ?>">
+									<?= $link['title']; ?>
+								</a>
+						<?php endif;
+						endwhile; ?>
+					</div>
+
+				<?php endif; ?>
+
+				<?php if ($footer_copyright) : ?>
+					<?= $footer_copyright ?>
+				<?php endif; ?>
 			</div>
 		</div>
-	<?php endif; ?>
+	</div>
 
 </footer>
 </div><!-- #page -->
+
 <?php
 popup();
 wp_footer(); ?>

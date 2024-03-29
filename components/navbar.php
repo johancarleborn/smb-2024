@@ -29,12 +29,12 @@
 
         <?php button_link(globalACF()['menu_btn'], 'btn-outlined hidden lg:flex bg-white py-2 px-3 md:px-4 lg:px-6 text-xs sm:text-sm md:text-base'); ?>
 
-        <button class="flex items-center search-toggle icon-inherit lg:hover:text-primary-500 whitenav:group-[.scrolled]/header:text-primary-600 text-primary-600 whitenav:text-white size-6" aria-label="<?= __('Toggla sök', 'lightning'); ?>" aria-label="<?= __('Sök', 'lightning'); ?>">
+        <button class="flex items-center search-toggle icon-inherit lg:hover:text-cta whitenav:group-[.scrolled]/header:text-cta-hover text-cta-hover whitenav:text-white size-6" aria-label="<?= __('Toggla sök', 'lightning'); ?>" aria-label="<?= __('Sök', 'lightning'); ?>">
             <ion-icon name="search-outline"></ion-icon>
         </button>
         <?php get_template_part('components/search'); ?>
 
-        <button class="hidden lg:flex items-center pr-3 border-r icon-inherit whitenav:group-[.scrolled]/header:text-primary-600 text-white bookmark-toggle border-r-white whitenav:group-[.scrolled]/header:border-primary-600/50 lg:hover:text-primary-500 w-9 h-6" aria-label="<?= __('Toggla bokmärken', 'lightning'); ?>" aria-label="<?= __('Bokmärken', 'lightning'); ?>">
+        <button class="hidden lg:flex items-center pr-3 border-r icon-inherit text-cta-hover whitenav:group-[.scrolled]/header:text-cta-hover whitenav:text-white bookmark-toggle border-r-600/50 whitenav:border-r-white whitenav:group-[.scrolled]/header:border-cta-hover/50 lg:hover:text-cta w-9 h-6" aria-label="<?= __('Toggla bokmärken', 'lightning'); ?>" aria-label="<?= __('Bokmärken', 'lightning'); ?>">
             <ion-icon name="bookmark-outline"></ion-icon>
         </button>
 
@@ -43,14 +43,14 @@
                 extract(acf_sub_fields(['footer_col_link', 'footer_col_icon']));
             ?>
                 <?php if ($footer_col_link && $footer_col_icon) : ?>
-                    <a class="hidden lg:flex items-center justify-start size-6 whitenav:group-[.scrolled]/header:text-primary-600/50 text-white lg:hover:!text-primary-500 icon-inherit" href="<?= $footer_col_link['url']; ?>" target="<?= $footer_col_link['target']; ?>" title="<?= $footer_col_link['title']; ?>">
+                    <a class="hidden lg:flex items-center justify-start size-6 text-cta-hover/50 whitenav:group-[.scrolled]/header:text-cta-hover/50 whitenav:text-white lg:hover:!text-cta icon-inherit" href="<?= $footer_col_link['url']; ?>" target="<?= $footer_col_link['target']; ?>" title="<?= $footer_col_link['title']; ?>">
                         <?= $footer_col_icon ?>
                     </a>
                 <?php endif; ?>
             <?php endwhile; ?>
         <?php endif; ?>
 
-        <button id="main-menu-toggle" class="flex items-center text-primary-600 whitenav:text-white whitenav:group-[.scrolled]/header:text-primary-600 group main-menu-toggle-btn icon-inherit size-6 lg:hidden" aria-label="<?= __('Toggla menyn', 'lightning'); ?>" title="<?= __('Toggla menyn', 'lightning'); ?>">
+        <button id="main-menu-toggle" class="flex items-center text-cta-hover whitenav:text-white whitenav:group-[.scrolled]/header:text-cta-hover group main-menu-toggle-btn icon-inherit size-6 lg:hidden" aria-label="<?= __('Toggla menyn', 'lightning'); ?>" title="<?= __('Toggla menyn', 'lightning'); ?>">
             <ion-icon name="menu-outline" class="menu-toggle-icon group-[.menu-toggled]:hidden"></ion-icon>
             <ion-icon name="close-outline" class="menu-toggle-icon hidden group-[.menu-toggled]:block text-black"></ion-icon>
         </button>

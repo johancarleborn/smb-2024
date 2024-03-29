@@ -5,7 +5,7 @@ if (get_row_layout() == 'post_listing' && !s(get_row_layout())['hide_component']
 
     $sidebar_active = false;
 
-    if ($post_type == 'post' && $show_sidebar) {
+    if ($post_type == 'post' && $show_sidebar && $content_type != 'picked') {
         $sidebar_active = true;
     }
 
@@ -105,9 +105,9 @@ if (get_row_layout() == 'post_listing' && !s(get_row_layout())['hide_component']
 
                 </div>
 
-                <?php if ($post_type == 'post' && $show_sidebar) : ?>
+                <?php if ($sidebar_active) : ?>
                     <div class="pl-16 border-l border-l-gray-200">
-                        Denna månad
+                        <?php include __DIR__ . '/parts/post-listing-sidebar.php' ?>
                     </div>
                 </div>
             <?php endif; ?>

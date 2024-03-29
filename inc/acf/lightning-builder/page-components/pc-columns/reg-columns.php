@@ -224,13 +224,11 @@ Annars visas en knapp/länk längst ner.',
             'wrapper' => ['width' => '50']
         ],
         [
-            'key' => 'field_lb_column_columns',
+            'key' => 'field_lb_columns_colors',
             'label' => 'Färger',
             'name' => 'columns',
             'type' => 'clone',
-            'clone' => [
-                0 => 'group_clone_component_settings',
-            ],
+            'clone' => [0 => 'group_clone_component_settings'],
             'display' => 'seamless',
             'layout' => 'block',
             'prefix_name' => 1,

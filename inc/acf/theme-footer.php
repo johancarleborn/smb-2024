@@ -6,8 +6,8 @@ acf_add_local_field_group([
     'title' => 'Sidfoten',
     'fields' => [
         [
-            'key' => 'field_lb_theme_footer_info_tab',
-            'label' => 'Info',
+            'key' => 'field_lb_theme_footer_logo_tab',
+            'label' => 'Logo',
             'type' => 'tab',
             'placement' => 'top',
         ],
@@ -17,7 +17,7 @@ acf_add_local_field_group([
             'name' => 'footer_logo',
             'type' => 'image',
             'return_format' => 'id',
-            'preview_size' => 'medium',
+            'preview_size' => 'thumbnail',
             'library' => 'all',
             'wrapper' => [
                 'width' => '50',
@@ -29,11 +29,23 @@ acf_add_local_field_group([
             'name' => 'footer_logo_dark',
             'type' => 'image',
             'return_format' => 'id',
-            'preview_size' => 'medium',
+            'preview_size' => 'thumbnail',
             'library' => 'all',
             'wrapper' => [
                 'width' => '50',
             ]
+        ],
+        [
+            'key' => 'field_lb_theme_footer_text_tab',
+            'label' => 'Text',
+            'type' => 'tab',
+            'placement' => 'top',
+        ],
+        [
+            'key' => 'field_lb_theme_footer_text_title',
+            'label' => __('Rubrik', 'lightning'),
+            'name' => 'footer_text_title',
+            'type' => 'text',
         ],
         [
             'key' => 'field_lb_theme_footer_footer_text',
@@ -89,6 +101,7 @@ acf_add_local_field_group([
                             'ajax' => 1,
                             'return_format' => 'label',
                             'parent_repeater' => 'field_lb_theme_footer_col_links',
+                            'wrapper' => ['width' => 25],
                         ],
                         [
                             'key' => 'field_lb_theme_footer_col_link',
@@ -106,31 +119,10 @@ acf_add_local_field_group([
             'rows_per_page' => 20,
         ],
         [
-            'key' => 'field_lb_theme_footer_copyright_tab',
-            'label' => 'Copyright',
-            'type' => 'tab',
-            'placement' => 'top',
-        ],
-        [
-            'key' => 'field_lb_theme_footer_copyright',
-            'label' => __('Copyright-text', 'lightning'),
-            'name' => 'footer_copyright',
-            'type' => 'text',
-            'instructions' => __('&copy; 202* ' . get_bloginfo('name') . ' - Alla rättigheter förbehållna', 'lightning'),
-            'required' => 0,
-            'wrapper' => ['width' => 100]
-        ],
-        [
             'key' => 'field_lb_theme_footer_social_media_tab',
             'label' => 'Sociala medier',
             'type' => 'tab',
             'placement' => 'top',
-        ],
-        [
-            'key' => 'field_lb_theme_footer_social_media_title',
-            'label' => 'Rubrik för sociala medier',
-            'name' => 'footer_title_social_media',
-            'type' => 'text',
         ],
         [
             'key' => 'field_lb_theme_footer_social_media_repeater',
@@ -154,6 +146,7 @@ acf_add_local_field_group([
                     'ajax' => 1,
                     'return_format' => 'label',
                     'parent_repeater' => 'field_lb_theme_footer_social_media_repeater',
+                    'wrapper' => ['width' => 25],
                 ],
                 [
                     'key' => 'field_lb_theme_footer_col_link',
@@ -167,14 +160,39 @@ acf_add_local_field_group([
             'rows_per_page' => 20,
         ],
         [
-            'key' => 'field_lb_theme_footer_social_media_text',
-            'label' => 'Text',
-            'name' => 'footer_col_social_media_text',
-            'type' => 'wysiwyg',
-            'tabs' => 'visual',
-            'toolbar' => 'basic',
-            'media_upload' => 0,
-            'delay' => 1,
+            'key' => 'field_lb_theme_footer_copyright_tab',
+            'label' => 'Copyright',
+            'type' => 'tab',
+            'placement' => 'top',
+        ],
+        [
+            'key' => 'field_lb_theme_footer_leagal_repeater',
+            'label' => __('Legala Länkar', 'lightning'),
+            'name' => 'footer_legal_links',
+            'type' => 'repeater',
+            'instructions' => __('Cookies osv', 'lightning'),
+            'min' => 0,
+            'max' => 0,
+            'layout' => 'table',
+            'button_label' => __('Länk +', 'lightning'),
+            'sub_fields' => [
+                [
+                    'key' => 'field_lb_theme_footer_legal_link',
+                    'label' => __('Länk', 'lightning'),
+                    'name' => 'link',
+                    'type' => 'link',
+                ],
+            ],
+            'wrapper' => ['width' => 100]
+        ],
+        [
+            'key' => 'field_lb_theme_footer_copyright',
+            'label' => __('Copyright-text', 'lightning'),
+            'name' => 'footer_copyright',
+            'type' => 'text',
+            'instructions' => __('&copy; 202* ' . get_bloginfo('name') . ' - Alla rättigheter förbehållna', 'lightning'),
+            'required' => 0,
+            'wrapper' => ['width' => 100]
         ],
         [
             'key' => 'field_lb_theme_footer_script_tab',

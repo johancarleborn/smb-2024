@@ -1,5 +1,5 @@
 function wcagMode() {
-    const wcags = document.querySelectorAll('.toggle-wcag-mode')
+    const wcags = document.querySelectorAll('.toggle-cta-mode')
     if (localStorage.theme === 'wcag') {
         document.documentElement.classList.add('wcag')
         wcags.forEach((wcag) => wcag.classList.add('active'))
@@ -21,7 +21,7 @@ function toggleWcagMode() {
 }
 
 document.addEventListener('click', (e) => {
-    if (e.target && e.target.classList.contains('toggle-wcag-mode')) {
+    if (e.target && e.target.classList.contains('toggle-cta-mode')) {
         toggleWcagMode()
     }
 })

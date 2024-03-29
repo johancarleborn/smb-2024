@@ -115,8 +115,10 @@ function globalACF() {
         'site_logo' => get_field('site_logo', 'option'),
         'site_logo_dark' => get_field('site_logo_dark', 'option'),
         'footer_logo' => get_field('footer_logo', 'option'),
+        'footer_logo_dark' => get_field('footer_logo_dark', 'option'),
+        'footer_text_title' => get_field('footer_text_title', 'option'),
+        'footer_text' => get_field('footer_text', 'option'),
         'footer_copyright' => get_field('footer_copyright', 'option'),
-        'social_media_text' => get_field('footer_col_social_media_text', 'option'),
         'show_popup' => get_field('show_popup', 'option'),
         'popup_top_title' => get_field('popup_top_title', 'option'),
         'popup_title' => get_field('popup_title', 'option'),
@@ -246,6 +248,29 @@ function url_by_template($template_name) {
         return false;
     }
 }
+
+/**
+ * 
+ * Update the post views
+ * 
+ */
+
+function update_most_read($post_id) {
+    $count = get_field('most_read_count', $post_id);
+    $count++;
+    update_field('most_read_count', $count, $post_id);
+}
+
+/*
+  
+ $views_qty = get_field('most_read_count', get_the_ID());
+if ($views_qty == null) {
+	$views_qty = 1;
+} else {
+	$views_qty = $views_qty + 1;
+}
+update_field('most_read_count', $views_qty, get_the_ID());
+ */
 
 
 /**

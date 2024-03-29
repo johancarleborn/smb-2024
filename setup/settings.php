@@ -109,7 +109,7 @@ function disable_gutenberg_for_custom_post_types($is_enabled, $post_type) {
 add_filter('use_block_editor_for_post_type', 'disable_gutenberg_for_custom_post_types', 10, 2);
 
 // Disable all Gutenberg blocks except for the ones we want to use
-add_filter('allowed_block_types', function ($allowed_blocks, $post) {
+add_filter('allowed_block_types_all', function ($allowed_blocks, $post) {
 	$allowed_blocks = [
 		'core/paragraph',
 		'core/heading',

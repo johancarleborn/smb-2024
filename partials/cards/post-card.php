@@ -39,6 +39,30 @@ if (!function_exists('post_card')) {
                 </a>
             </div>
         </div>
-<?php
+    <?php
     }
+}
+
+
+if (!function_exists('sidebar_post_item')) {
+
+    function sidebar_post_item($post_id) {
+        $link = get_permalink();
+        $image_id = get_post_thumbnail_id($post_id);
+        $name = get_the_author_meta('user_firstname') . ' ' . get_the_author_meta('user_lastname');
+    ?>
+
+        <li class="mb-2">
+            <a href="<?= $link; ?>" class="flex items-center gap-3 py-3 text-sm text-gray-600 hover:text-gray-800">
+                <div class="shrink-0 size-20">
+                    <?php image($image_id, 'thumbnail', 'aspect-square w-full object-cover shrink-0') ?>
+                </div>
+                <div class="">
+                    <div class="text-sm font-extrabold text-black-950"><?php the_title(); ?></div>
+                    <div class="text-gray-500">Av <strong><?= $name ?></strong></div>
+                </div>
+            </a>
+        </li>
+
+<?php }
 }

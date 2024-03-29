@@ -22,12 +22,12 @@
             }
 
             * {
-                @apply hover:text-primary-300;
+                @apply hover:text-cta-hover;
             }
         }
     }
 
-    li {
+    li.menu-item {
         @apply max-sm:px-4 max-md:px-6 max-lg:px-8;
     }
 

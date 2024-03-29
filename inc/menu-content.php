@@ -7,7 +7,7 @@ class Menu_content extends Walker_Nav_Menu {
         $class_names = $value = '';
         $li_classes = empty($item->classes) ? array() : (array) $item->classes;
 
-        $li_classes[] .= 'lg:hover:!text-primary-500 transition-colors duration-200';
+        $li_classes[] .= 'lg:hover:!text-cta transition-colors duration-200';
         $a_classes = 'block w-full font-manrope py-2 font-bold text-lg lg:text-base menu-item-link gap-x-2';
         $has_icon = !empty($icon) && $icon != 'None';
 
@@ -24,7 +24,7 @@ class Menu_content extends Walker_Nav_Menu {
 
         if ($depth === 0) {
             // Top level menu item (depth 0)
-            $li_classes[] .= 'parent-item group lg:rounded-none px-6 lg:px-0 lg:text-primary-700 whitenav:lg:text-white lg:whitenav:group-[.scrolled]/header:text-primary-700';
+            $li_classes[] .= 'parent-item group lg:rounded-none px-6 lg:px-0 lg:text-cta-active whitenav:lg:text-white lg:whitenav:group-[.scrolled]/header:text-cta-active';
             $a_classes .= ' transition-none lg:py-6 lg:px-3 xl:px-4 lg:w-auto';
             if ($is_parent) {
                 $a_classes .= ' lg:!pr-0';
